@@ -1,5 +1,5 @@
 'use client';
-import React, { useContext, useEffect, useState, useMemo} from 'react';
+import React, { useContext, useEffect, useState, useMemo } from 'react';
 import AppMenuitem from './AppMenuitem';
 import { LayoutContext } from './context/layoutcontext';
 import { MenuProvider } from './context/menucontext';
@@ -7,21 +7,21 @@ import Link from 'next/link';
 import { AppMenuItem, Users } from '@/types';
 import { menuItems } from './menu-role/menu-items';
 import { filterMenuItems, roleAuthMenu } from './authmenu-itens';
-import {authenStore} from '@/app/store';
+import { authenStore } from '@/app/store';
 
 const AppMenu = () => {
     const { layoutConfig } = useContext(LayoutContext);
     const [currentTime, setCurrentTime] = useState<string>('');
     // Example usage
     const { authData } = authenStore();
-    const userRole = authData?.role ?? ( "" as string);
+    const userRole = authData?.role ?? ("" as string);
 
     const users = useMemo(() => ({
         role: authData?.role,
         sideGroup: roleAuthMenu(authData?.role,)
     }), [userRole]);
 
-     const finalmenuItems: AppMenuItem[] = useMemo(() => {
+    const finalmenuItems: AppMenuItem[] = useMemo(() => {
         return authData ? filterMenuItems(menuItems, users) : [];
     }, [authData, users]);
 
@@ -82,10 +82,10 @@ const AppMenu = () => {
     return (
         <MenuProvider>
             <Link href="/" className="layout-apptopbar layout-topbar-logo">
-                <img src={`/layout/images/789-CFS.svg`} width="30px" height="28px" alt="logo" />
-                <span style={{ color: "#fff", marginTop: "-0.3rem", marginLeft: "0.5rem" }}> CHCEK-IN TIME</span>
+                <img src={`/layout/images/edl_logo.svg`} width="30px" height="28px" alt="logo" />
+                <span style={{ color: "#fff", marginTop: "-0.3rem", marginLeft: "0.5rem" }}>Finger Print</span>
             </Link>
-             <ul className="layout-menu">
+            <ul className="layout-menu">
                 {finalmenuItems.length > 0 ? (
                     finalmenuItems.map((item, i) => (
                         !item?.seperator ? (
@@ -95,7 +95,19 @@ const AppMenu = () => {
                         )
                     ))
                 ) : (
-                    <li className="menu-placeholder">No Menu Items Available</li>
+                    <li
+                        className="m-3 p-4 border-round-xl text-center border-1 border-white-alpha-10"
+                        style={{ background: 'rgba(219, 217, 128, 0.48)', backdropFilter: 'blur(4px)' }}
+                        // style={{ background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(4px)' }}
+                    >
+                        <i className="pi pi-lock text-2xl text-blue-400 mb-2 block"></i>
+                        <span className="text-xs font-semibold text-blue-100 uppercase tracking-wider block mb-1">
+                            ບໍ່ມີສິດເຂົ້າເຖິງ
+                        </span>
+                        <p className="text-xs text-white-alpha-40 relative z-1 m-0">
+                            ຕິດຕໍ່ຜູ້ດູຄຸ້ມຄ້ອງການເຂົ້າເຖິງ
+                        </p>
+                    </li>
                 )}
                 {BroadHelper}
             </ul>
