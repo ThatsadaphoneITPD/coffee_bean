@@ -7,7 +7,9 @@ const Page = () => {
             {/* Breadcrumb or Category Label */}
             <div className="mb-4 flex align-items-center gap-2 text-blue-600 font-semibold">
                 <i className="pi pi-shield"></i>
-                <span className="uppercase text-xs tracking-wider">Security & ຝ່າຍ ICT's Portal</span>
+                <span className="uppercase text-xs tracking-wider">
+                    Security {'&'} ຝ່າຍ ICT{'s'} Portal
+                </span>
             </div>
 
             <div className="mb-5">
