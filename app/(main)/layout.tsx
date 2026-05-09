@@ -7,7 +7,7 @@ interface AppLayoutProps {
 }
 
 export const metadata: Metadata = {
-    title: 'CheckIn-Time',
+    title: 'Finger CheckIn',
     description: 'Check in-out of Emplpyee',
     robots: { index: false, follow: false },
     viewport: { initialScale: 1, width: 'device-width' },

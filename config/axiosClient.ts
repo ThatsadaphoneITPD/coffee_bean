@@ -1,7 +1,10 @@
 import axios from 'axios';
-import { BASE_URL } from '@/config/constants-api';
+// import secureLocalStorage from 'react-secure-storage';
 
-const axiosClient = axios.create({ baseURL: BASE_URL });
+const axiosClient = axios.create({
+  baseURL: '/edl_ict/daily_v2K2Eu4SCHt8dpmrjcaA/d4MgpBhnUPGeK',
+  withCredentials: true,
+});
 
 // Request Interceptor
 axiosClient.interceptors.request.use(
@@ -12,6 +15,7 @@ axiosClient.interceptors.request.use(
     };
 
     // Add Bearer Token if it exists
+    //  const token = secureLocalStorage.getItem('token');
     const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -42,7 +46,7 @@ axiosClient.interceptors.response.use(
         // Handle unauthorized access (e.g., token expiration)
         console.log("Unauthorized", error.response);
         console.warn('Token expired or unauthorized, redirecting to login...');
-        document.cookie ='token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         localStorage.removeItem('token');
         localStorage.removeItem('eoffice_token');
         localStorage.removeItem('authStore');

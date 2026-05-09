@@ -77,7 +77,7 @@ declare namespace Checkin {
     type CheckinManual = {
         checkin_id: number
         emp_code: string
-        punch_time:  string | Date;
+        punch_time: string | Date;
         device_id: string
         latitude: number
         longitude: number
@@ -198,6 +198,15 @@ declare namespace Checkin {
         totalLateMinute: number
         totalFingerScanDays: number
         totalLeaveDays: any
+    }
+
+
+    type AttendanceOutSource = {
+        emp_code: string
+        fullname: string
+        punch_date: string
+        first_punch: string
+        last_punch: string
     }
 
     type Attendance = {

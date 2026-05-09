@@ -12,6 +12,7 @@
 /.next/
 /out/gut 
 /build
+.env
 
 # misc
 .DS_Store

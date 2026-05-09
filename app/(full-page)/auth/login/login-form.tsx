@@ -11,8 +11,6 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import {authenStore} from '@/app/store';
 import { useUsersStore } from '../../../store/user/usersStore';
-import { Checkbox } from 'primereact/checkbox';
-import { log } from 'console';
 
 const initialValues: LoginSchema = {
     username: '',
@@ -23,7 +21,7 @@ export default function SignInForm() {
     const router = useRouter();
     const [isLoading, setLoading] = useState(false);
     const { setAuthData } = authenStore();
-    const { loginUser, loginEoffice } = useUsersStore();
+    const { loginUser } = useUsersStore();
 
     const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
         try {
@@ -34,11 +32,6 @@ export default function SignInForm() {
                 localStorage.setItem('token', resp?.data?.accessToken);
                 document.cookie = `token=${resp?.data?.accessToken}; path=/;`;
                 setAuthData(resp?.data?.user);
-                if (['admin', 'deptadmin'].includes(resp?.data?.user?.role ?? '')){
-                    const resp_eoffce: any = await loginEoffice({username: "appcheckin", password: "EDL1234"})
-                    localStorage.setItem('eoffice_token', resp_eoffce?.data?.token);
-                    document.cookie = `eoffice_token=${resp_eoffce?.data?.token}; path=/;`;
-                }
 
                 setTimeout(() => {
                     router.push('/');

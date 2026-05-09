@@ -2,7 +2,6 @@ import { create } from 'zustand';
 import { initialState } from '@/config/constants-api';
 import axiosClient from '@/config/axiosClient';
 import { Checkin, Users } from '@/types';
-import axiosClientEoffice from '@/config/axiosClientOffice';
 
 
 // create interface for the store
@@ -16,7 +15,6 @@ type UsersStore = {
     loading: boolean;
     dataUser: Checkin.MobileUser[];
     userLogin: Users.UserLogin;
-    loginEoffice: (userLogin: any) => Promise<void>;
     loginUser: (userLogin: any) => Promise<void>;
     getUsersData: (params?: { empCode?: string; division_id?: string; department_id?: string; page?: number; pageSize?: number; }) => Promise<void>;
     resetDeviceId: (user_id: number) => Promise<void>;
@@ -31,15 +29,6 @@ export const useUsersStore = create<UsersStore, []>((set, get) => ({
     loginUser: async (userLogin) => {
         try {
             const response = await axiosClient.post('/api/Auth/login', userLogin);
-            return response;
-        } catch (error) {
-            // console.log(error);
-            throw error;
-        }
-    },
-    loginEoffice: async (userLogin) => {
-        try {
-            const response = await axiosClientEoffice.post('/api/login', userLogin);
             return response;
         } catch (error) {
             // console.log(error);

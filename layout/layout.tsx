@@ -134,9 +134,9 @@ const Layout = ({ children }: ChildContainerProps) => {
                 </div>
                 <div className="layout-main-container">
                     <div className="layout-main">
-                        <ProtectedLayout>
+                        {/* <ProtectedLayout> */}
                             {children}
-                        </ProtectedLayout>
+                        {/* </ProtectedLayout> */}
                     </div>
                     <AppFooter />
                 </div>
