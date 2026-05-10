@@ -3,7 +3,6 @@
 import { DataTable } from 'primereact/datatable';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GetColumns } from './columns';
-import toast from 'react-hot-toast';
 import { Nullable } from 'primereact/ts-helpers';
 import { Calendar } from 'primereact/calendar';
 import EmptyData from '@/app/shared/empty-table/container';
@@ -11,7 +10,6 @@ import { InputText } from 'primereact/inputtext';
 import { useDailyAttendanceStore } from '@/app/store/daily-checkin/dailyStore';
 import moment from 'moment';
 import LoadingEmpty from '@/app/shared/empty-table/loading-empty';
-import { ClassValue } from 'clsx';
 
 export default function DailyCheckIn() {
     const { loading, dailyEmployeesData, getDailyReportData } = useDailyAttendanceStore();
@@ -138,7 +136,7 @@ export default function DailyCheckIn() {
     );
 
     // ເພີ່ມເຕີມ Loader Template
-    const loaderTemplate = () => (
+    const loaderTemplate: React.ReactNode = (
         <div className="flex flex-column align-items-center justify-content-center w-full h-full">
             <LoadingEmpty />
             <div className="mt-4 text-center">
@@ -146,7 +144,7 @@ export default function DailyCheckIn() {
                     ດຳເນີນການດຶງຂໍ້ມູນ log...
                 </span>
                 <span className="text-500 font-bold text-xs tracking-widest uppercase">
-                    ຝ່າຍ ICT's Finger Print Outsource
+                    ຝ່າຍ ICT - Finger Print Outsource
                 </span>
             </div>
         </div>
