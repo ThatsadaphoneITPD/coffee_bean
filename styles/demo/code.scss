@@ -4,7 +4,7 @@ pre.app-code {
     padding: 0;
     border-radius: var(--border-radius);
     overflow: auto;
-    
+
     code {
         color: var(--surface-900);
         padding: 1rem;
@@ -12,4 +12,17 @@ pre.app-code {
         display: block;
         font-family: monaco, Consolas, monospace;
     }
+}
+
+/* Prevents the loading overlay from spilling out when the table is empty */
+.p-datatable {
+    position: relative;
+}
+
+.p-datatable-loading-overlay {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    /* This ensures it stays inside the table borders */
+    border-radius: inherit;
 }

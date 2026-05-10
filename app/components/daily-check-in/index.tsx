@@ -10,6 +10,8 @@ import EmptyData from '@/app/shared/empty-table/container';
 import { InputText } from 'primereact/inputtext';
 import { useDailyAttendanceStore } from '@/app/store/daily-checkin/dailyStore';
 import moment from 'moment';
+import LoadingEmpty from '@/app/shared/empty-table/loading-empty';
+import { ClassValue } from 'clsx';
 
 export default function DailyCheckIn() {
     const { loading, dailyEmployeesData, getDailyReportData } = useDailyAttendanceStore();
@@ -85,79 +87,115 @@ export default function DailyCheckIn() {
     );
 
     const header = (
-        <div className="bg-white border-bottom-1 border-100 px-4 py-4">
-            <div className="flex flex-column md:flex-row md:align-items-center justify-content-between gap-3">
+        <div className="bg-white border-bottom-1 border-50 px-4 py-4">
+            <div className="flex flex-column md:flex-row md:align-items-center justify-content-between gap-4">
+                {/* Left Side: Title & Awesome Icon */}
                 <div className="flex align-items-center gap-3">
-                   <div className="bg-blue-600 border-round-2xl p-1 shadow-4" style={{ background: '#1e40af' }}>
+                    <div className="bg-blue-600 border-round-2xl p-1 shadow-4" style={{ background: '#1e40af' }}>
                         <div className="bg-blue-600 border-round-xl p-3 flex align-items-center justify-content-center"
-                            style={{ 
+                            style={{
                                 background: 'linear-gradient(145deg, #2563eb, #1d4ed8)',
-                                boxShadow: 'inset 2px 2px 5px rgba(255,255,255,0.2)' 
+                                boxShadow: 'inset 2px 2px 5px rgba(255,255,255,0.2)'
                             }}>
                             <i className="pi pi-users text-white text-xl drop-shadow-sm"></i>
                         </div>
                     </div>
                     <div>
-                        <h2 className="text-xl font-bold m-0 p-0 text-900">Attendance ປະຈຳວັນ</h2>
-                        <p className="text-sm text-500 m-0">Real-time finger print log tracking</p>
+                        <h2 className="text-xl font-black m-0 p-0 text-900 tracking-tight uppercase">
+                            Attendance ປະຈຳວັນ
+                        </h2>
+                        <p className="text-sm text-500 m-0 font-medium">Real-time fingerprint log tracking</p>
                     </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2 align-items-center">
-                    <div className="p-inputgroup flex-1 w-full md:w-16rem shadow-sm">
-                        <span className="p-inputgroup-addon bg-white">
-                            <i className="pi pi-search text-400"></i>
-                        </span>
+                {/* Right Side: Awesome Search & Filter */}
+                <div className="flex flex-wrap gap-3 align-items-center">
+                    {/* Modern Search Bar */}
+                    <div className="relative group w-13rem">
+                        <i className="pi pi-search pl-2 absolute left-3 top-50 -mt-2 text-400 group-focus-within:text-blue-500 transition-colors duration-200 z-2"></i>
                         <InputText
                             value={emcode || ''}
                             onChange={(e) => setEmcode(e.target.value)}
-                            placeholder="ຄົ້ນຫາ ລະຫັດພະນັກງານ"
-                            className="p-inputtext-sm"
+                            placeholder="ຄົ້ນຫາ ລະຫັດພະນັກງານ..."
+                            style={{ height: '2.5rem' }}
+                            className="p-inputtext-sm pl-5 shadow-sm border-round-xl border-1 border-200 hover:border-400 focus:border-blue-500 w-full md:w-16rem transition-all"
                         />
                     </div>
-
+                    <div className="border-left-3 border-200 mx-2"></div>
+                    {/* Styled Calendar */}
                     <Calendar
                         value={date}
                         onChange={(e) => setDate(e.value as Date)}
                         dateFormat="dd/mm/yy"
-                        style={{ height: '2.5rem' }}
                         showIcon
-                        className="p-inputtext-sm shadow-sm"
                         placeholder="Filter Date"
+                        className="p-inputtext-sm shadow-sm border-round-xl"
+                        style={{ height: '2.5rem' }}
                     />
                 </div>
             </div>
         </div>
     );
 
-    // In your return, wrap DataTable in a styled container
+    // ເພີ່ມເຕີມ Loader Template
+    const loaderTemplate = () => (
+        <div className="flex flex-column align-items-center justify-content-center w-full h-full">
+            <LoadingEmpty />
+            <div className="mt-4 text-center">
+                <span className="text-blue-600 font-black text-xl tracking-tighter block uppercase animate-pulse">
+                    ດຳເນີນການດຶງຂໍ້ມູນ log...
+                </span>
+                <span className="text-500 font-bold text-xs tracking-widest uppercase">
+                    ຝ່າຍ ICT's Finger Print Outsource
+                </span>
+            </div>
+        </div>
+    );
+
     return (
-        <div className="card shadow-2 border-round-xl overflow-hidden border-1 border-100 bg-white">
+        <div className="card shadow-8 border-round-2xl overflow-hidden border-1 border-100 bg-white">
             {header}
-            <DataTable
-                value={tableData}
-                size="large"
-                // size="small"
-                stripedRows
-                rowHover
-                dataKey="_key"
-                rows={10}
-                paginator
-                ref={dt}
-                sortField="_key"
-                sortOrder={1}
-                selection={selectedItem}
-                onSelectionChange={(e: any) => setSelectedItem(e.value as any)}
-                rowsPerPageOptions={[10, 25, 30, 40, 50, 100]}
-                className="datatable-responsive"
-                paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-                currentPageReportTemplate="ສະແດງ {first} ຫາ {last}, ຈາກຈຳນວນ {totalRecords} ພະນັກງານ"
-                loading={loading}
-                emptyMessage={<EmptyData emptytext="ຂໍ້ມູນ ວ່າງເປົ່າ" />}
-                responsiveLayout="scroll"
-            >
-                {GetColumns().map((col, i) => React.cloneElement(col, { key: i }))}
-            </DataTable>
+
+            <div className="relative">
+                {/* Container for absolute loader positioning */}
+                <DataTable
+                    value={tableData}
+                    size="large"
+                    stripedRows
+                    rowHover
+                    dataKey="_key"
+                    rows={10}
+                    paginator
+                    ref={dt}
+                    selection={selectedItem}
+                    onSelectionChange={(e: any) => setSelectedItem(e.value)}
+                    rowsPerPageOptions={[10, 25, 50]}
+                    className="datatable-responsive no-border-header"
+                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+                    currentPageReportTemplate="ສະແດງ {first} ຫາ {last}, ຈາກຈຳນວນ {totalRecords}"
+
+                    // Loading Props
+                    loading={loading}
+                    loadingIcon={loaderTemplate}
+                    emptyMessage={<EmptyData emptytext="ບໍ່ພົບຂໍ້ມູນ ພະນັກງານກົດເຂົ້າ" />}
+                    // emptyMessage={loaderTemplate}
+                    scrollable
+                    scrollHeight="400px"
+                    responsiveLayout="scroll"
+                    pt={{
+                        thead: {
+                            className: 'bg-gray-50 border-bottom-2 border-100'
+                        },
+                        column: {
+                            headerCell: ({ context }: any) => ({
+                                className: 'text-sm font-bold text-600 uppercase tracking-wider'
+                            })
+                        }
+                    }}
+                >
+                    {GetColumns().map((col, i) => React.cloneElement(col, { key: i }))}
+                </DataTable>
+            </div>
         </div>
     );
 }

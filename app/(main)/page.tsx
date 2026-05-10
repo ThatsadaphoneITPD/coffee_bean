@@ -16,7 +16,7 @@ const Page = () => {
                 <h1 className="text-3xl font-extrabold text-900 tracking-tight m-0">
                     Finger Print & Face Scanner Dashboard
                 </h1>
-                <p className="text-600 mt-1">ຕິດຕາມ ຄົນເຂົ້າ-ອອກ ວຽກ ລະບົບ Finger Print</p>
+                <p className="text-600 mt-1">ຕິດຕາມການເຂົ້າ-ອອກ ວຽກ ພະນັກງານ</p>
             </div>
 
             <DailyCheckIn />
