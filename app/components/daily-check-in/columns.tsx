@@ -80,19 +80,19 @@ export const GetColumns = () => {
         />,
         <Column
             key="punch_date"
-            header="ວັນທີ ຕິດຕາມ"
+            header="ປະຈຳວັນທີ"
             body={PunchDateBody}
             style={{ width: '20%' }}
         />,
         <Column
             key="first_punch"
-            header="Check-In"
+            header="ເວລາ-ກົດເຂົ້າ"
             body={(rd) => <TimeBadge time={rd.first_punch} />}
             align="center"
         />,
         <Column
             key="last_punch"
-            header="Check-Out"
+            header="ເວລາ-ກົດອອກ"
             body={(rd) => <TimeBadge time={rd.last_punch} isCheckOut />}
             align="center"
         />
