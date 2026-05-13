@@ -11,11 +11,9 @@ export const metadata: Metadata = {
     description: 'coffe pant on the top of BOLAVEN Montian',
     robots: { index: false, follow: false },
     viewport: { initialScale: 1, width: 'device-width' },
-    metadataBase: new URL('https://sk.com.la'), 
     openGraph: {
         type: 'website',
         title: 'SK COFFEE',
-        url: 'https://sk.com.la',
         description: 'Coffee BOLAVEN of Laos',
         images: ['https://res.cloudinary.com/dp3zeejct/image/upload/v1778651993/coffee_cupper_qjdtn8.png'],
         ttl: 604800
