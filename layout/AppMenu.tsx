@@ -82,8 +82,8 @@ const AppMenu = () => {
     return (
         <MenuProvider>
             <Link href="/" className="layout-apptopbar layout-topbar-logo">
-                <img src={`/layout/images/edl_logo.svg`} width="30px" height="28px" alt="logo" />
-                <span style={{ color: "#fff", marginTop: "-0.3rem", marginLeft: "0.5rem" }}>Finger Print</span>
+                <img src={`/layout/images/sk_logo.png`} width="30px" height="28px" alt="logo" />
+                <span style={{ color: "#fff", marginTop: "-0.3rem", marginLeft: "0.5rem" }}>SK Coffe Lao</span>
             </Link>
             <ul className="layout-menu">
                 {finalmenuItems.length > 0 ? (

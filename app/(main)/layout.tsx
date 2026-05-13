@@ -7,17 +7,17 @@ interface AppLayoutProps {
 }
 
 export const metadata: Metadata = {
-    title: 'Finger CheckIn',
-    description: 'Check in-out of Emplpyee',
+    title: 'SK COFFEE',
+    description: 'coffe pant on the top of BOLAVEN Montian',
     robots: { index: false, follow: false },
     viewport: { initialScale: 1, width: 'device-width' },
-    metadataBase: new URL('https://edl.edl.com.la'), 
+    metadataBase: new URL('https://sk.com.la'), 
     openGraph: {
         type: 'website',
-        title: 'EDL CheckIn',
-        url: 'https://edl.edl.com.la',
-        description: 'E-office EDL Laos',
-        images: ['https://res.cloudinary.com/dp3zeejct/image/upload/v1690474394/Payment/EDLHQ_mcifks.png'],
+        title: 'SK COFFEE',
+        url: 'https://sk.com.la',
+        description: 'Coffee BOLAVEN of Laos',
+        images: ['https://res.cloudinary.com/dp3zeejct/image/upload/v1778651993/coffee_cupper_qjdtn8.png'],
         ttl: 604800
     },
     icons: {
