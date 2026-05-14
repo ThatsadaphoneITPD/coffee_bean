@@ -61,13 +61,14 @@ export default function CoffeeBrochure() {
               <div className="col-12 md:col-6 p-4 border-right-1 border-200">
                 <h2 className="text-3xl font-bold mb-4" style={{ color: forestGreen }}>The Bolaven Story</h2>
                 <p className="line-height-3 text-lg mb-4">
-                  The Bolaven Plateau is the <strong>"crown jewel"</strong> of southern Laos.
-                  Formed thousands of years ago by volcanic activity, the nutrient-dense red volcanic soil
-                  provides a unique natural heritage for the world's finest coffee.
+                  The Bolaven Plateau is the <strong>"crown jewel"</strong> of southern Laos, 
+                  {`spanning the four provinces of Champasak, Salavan, Sekong, and Attapeu. This highland region holds a fascinating history and a unique natural heritage.`}
                 </p>
                 <div className="mt-3">
-                  <h4 className="font-bold mb-1">Home of the Laven</h4>
-                  <p className="text-sm">"Bolaven" translates to "The home of the Laven people," the indigenous group of this region.</p>
+                  <h4 className="font-bold mb-1">{`The Origin of the Name "Bolaven"`}</h4>
+                  <p className="text-sm">{`The name "Bolaven" pays homage to the Laven people, an indigenous ethnic group that has inhabited this region for centuries. In local dialects, "Bo" refers to a place or residential area; thus, "Bolaven" translates beautifully to "the home of the Laven people."`}</p>
+                  <h4 className="font-bold mb-1">{`Ancient Volcanic Soil and "Green Gold"`}</h4>
+                  <p className="text-sm">{`Thousands of years ago, the Bolaven Plateau was a site of volcanic activity. This left behind a legacy of nutrient-dense red volcanic soil (basaltic soil) that is incredibly fertile. Combined with the year-round cool climate, it has become the only region in Laos capable of producing world-class coffee, earning its reputation as the "Coffee Capital of Laos." Beyond its famous "green gold," the plateau is also a lush garden for tea, cardamom, and various cool-climate vegetables.`}</p>
                 </div>
               </div>
 
@@ -76,16 +77,20 @@ export default function CoffeeBrochure() {
                 <h2 className="text-3xl font-bold mb-4" style={{ color: forestGreen }}>볼라벤 이야기</h2>
                 <p className="line-height-3 text-lg mb-4">
                   볼라벤 고원은 라오스 남부의 <strong>"빛나는 보석"</strong>과도 같습니다.
-                  수천 년 전 화산 활동으로 형성된 비옥한 적색 화산토는
-                  세계 최고급 커피를 재배하기 위한 천혜의 환경을 제공합니다.
+                  {`아타푸 등 남부 4개 주에 걸쳐 있는 볼라벤 고원은 라오스 남부의 "빛나는 보석"과도 같습니다. 이 척박하면서도 풍요로운 땅에 담긴 매혹적인 이야기를 소개합니다.`}
                 </p>
                 <div className="mt-3">
-                  <h4 className="font-bold mb-1">라벤족의 고향</h4>
-                  <p className="text-sm">"볼라벤"은 이 지역의 토착 민족인 '라벤족의 고향'이라는 아름다운 의미를 담고 있습니다.</p>
+                  <h4 className="font-bold mb-1">{`"볼라벤"이라는 이름의 유래`}</h4>
+                  <p className="text-sm">{`"볼라벤"은 이 지역의 주인이자 오랫동안 이곳을 지켜온 토착 민족인 '라벤(Laven)'족의 이름에서 따온 것입니다. '보(Bo)'는 터전이나 거주지를 뜻하며, 이 둘이 합쳐져 '라벤족의 고향'이라는 아름다운 의미를 갖게 되었습니다.`}</p>
+                  <h4 className="font-bold mb-1">{`고대 화산 지대와 "녹색 황금"`}</h4>
+                  <p className="text-sm">{`볼라벤 고원은 먼 옛날 화산 활동이 일어났던 곳으로, 그 덕분에 미네랄이 풍부한 적색 화산토가 넓게 퍼져 있습니다. 연중 서늘한 기후와 이 비옥한 토양이 만나 라오스 최고의 커피를 생산하는 유일한 요람이 되었으며, 오늘날 '라오스 커피의 수도'라는 명성을 얻었습니다. 이곳에서는 "녹색 황금"이라 불리는 커피 외에도 차, 카다멈, 고랭지 채소 등이 풍성하게 재배됩니다.`}</p>
                 </div>
               </div>
             </div>
           </Card>
+        </div>
+        <div className="mt-4 border-round-xl overflow-hidden shadow-4">
+          <Image src="/demo/images/2_2.png" alt="Coffee Grains" width={1200} height={400} className="w-full h-auto object-cover" />
         </div>
       </section>
 
@@ -151,7 +156,7 @@ export default function CoffeeBrochure() {
         </div>
 
         <div className="mt-4 border-round-xl overflow-hidden shadow-4">
-          <Image src="/demo/images/2_2.png" alt="Coffee Grains" width={1200} height={400} className="w-full h-auto object-cover" />
+          <Image src="/demo/images/coffee_cupper_1.png" alt="Coffee cupper" width={1200} height={300} className="w-full h-auto object-cover" />
         </div>
       </section>
 
@@ -187,7 +192,7 @@ export default function CoffeeBrochure() {
                 <div className="col-6 mb-4">
                   <div className="surface-card p-2 shadow-2 border-round hover:shadow-4 transition-duration-300">
                     <Image
-                      src="/demo/images/3_1.png"
+                      src="/demo/images/3_2_1.png"
                       alt="Certificate 1"
                       width={400}
                       height={500}
@@ -199,7 +204,7 @@ export default function CoffeeBrochure() {
                 <div className="col-6 mb-4">
                   <div className="surface-card p-2 shadow-2 border-round hover:shadow-4 transition-duration-300">
                     <Image
-                      src="/demo/images/3_2.png"
+                      src="/demo/images/3_2_2.png"
                       alt="Certificate 2"
                       width={400}
                       height={500}
@@ -211,7 +216,7 @@ export default function CoffeeBrochure() {
                 <div className="col-6 mb-4">
                   <div className="surface-card p-2 shadow-2 border-round hover:shadow-4 transition-duration-300">
                     <Image
-                      src="/demo/images/3_3.png"
+                      src="/demo/images/3_2_3.png"
                       alt="Certificate 3"
                       width={400}
                       height={500}
@@ -223,7 +228,7 @@ export default function CoffeeBrochure() {
                 <div className="col-6 mb-4">
                   <div className="surface-card p-2 shadow-2 border-round hover:shadow-4 transition-duration-300">
                     <Image
-                      src="/demo/images/3_4.png"
+                      src="/demo/images/3_2_4.png"
                       alt="Certificate 4"
                       width={400}
                       height={500}
@@ -267,7 +272,7 @@ export default function CoffeeBrochure() {
                   {/* Bigger Sub-Image */}
                   <div className="flex-shrink-0 w-10rem h-10rem border-round-lg overflow-hidden shadow-2 border-2 border-green-100">
                     <Image
-                      src="/demo/images/4_2.png"
+                      src="/demo/images/4_2_1.jpeg"
                       alt="Volcanic Soil Detail"
                       width={160}
                       height={160}
@@ -301,7 +306,7 @@ export default function CoffeeBrochure() {
                   {/* Bigger Sub-Image */}
                   <div className="flex-shrink-0 w-10rem h-10rem border-round-lg overflow-hidden shadow-2 border-2 border-orange-100">
                     <Image
-                      src="/demo/images/2_2.png"
+                      src="/demo/images/4_2_2.jpeg"
                       alt="Roasting Detail"
                       width={160}
                       height={160}
